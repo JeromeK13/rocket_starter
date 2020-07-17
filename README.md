@@ -1,2 +1,2 @@
 # rocket-starter
-Template for my Rocket-Projects
+A minimal Rocket starter template for my future projects
