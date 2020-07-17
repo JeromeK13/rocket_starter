@@ -10,6 +10,7 @@ use rocket_contrib::json::JsonValue;
 use dotenv::dotenv;
 
 mod config;
+mod routes;
 
 #[catch(404)]
 fn not_found() -> JsonValue {
@@ -23,8 +24,10 @@ pub fn rocket() -> rocket::Rocket {
     dotenv().ok();
     rocket::custom(config::from_env())
         .mount(
-            "/api",
-            routes![],
+            "/api/v1",
+            routes![
+                routes::example::example
+            ],
         )
         .register(catchers![not_found])
 }
